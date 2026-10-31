@@ -1,0 +1,6 @@
+node_modules
+.appium
+.npm-cache
+artifacts
+package-lock.json
+docs/current

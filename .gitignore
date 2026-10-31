@@ -1,0 +1,9 @@
+node_modules/
+.appium/
+.npm-cache/
+.env
+.env.*
+!.env.example
+artifacts/
+*.apk
+.DS_Store
