@@ -1,0 +1,794 @@
+{
+  "schema_version": 1,
+  "source": "/Users/hwdavr/Projects/2026_NotesTakingApp/NotesTakingApp/.qa-artifacts/20261031-accessibility-ids-03/create-4x4-table.ad",
+  "source_sha256": "7565c5cf1fe68e56fd75fd0e1c2b4b9e54ea8b58cabf1ef7c0677582e8b5a605",
+  "step_count": 31,
+  "command_counts": {
+    "context": 1,
+    "fill": 1,
+    "is": 1,
+    "keyboard": 1,
+    "open": 1,
+    "press": 12,
+    "swipe": 2,
+    "wait": 12
+  },
+  "variables": ["QA_NOTE_TITLE"],
+  "parse_complete": true,
+  "issues": [],
+  "manual_review": [
+    {
+      "line": 11,
+      "reason": "resolve a current container/semantic target; recorded coordinates are not portable"
+    },
+    {
+      "line": 40,
+      "reason": "resolve a current container/semantic target; recorded coordinates are not portable"
+    }
+  ],
+  "steps": [
+    {
+      "line": 1,
+      "raw": "context platform=android device=\"Medium Phone\" kind=emulator theme=unknown",
+      "parsed": true,
+      "command": "context",
+      "args": ["platform=android", "device=Medium Phone", "kind=emulator", "theme=unknown"],
+      "context": {
+        "platform": "android",
+        "device": "Medium Phone",
+        "kind": "emulator",
+        "theme": "unknown"
+      }
+    },
+    {
+      "line": 2,
+      "raw": "open \"com.example.notesapp\" --relaunch",
+      "parsed": true,
+      "command": "open",
+      "args": ["com.example.notesapp", "--relaunch"],
+      "application": "com.example.notesapp",
+      "relaunch": true
+    },
+    {
+      "line": 4,
+      "raw": "press \"id=\\\"home_add_fab\\\" || text=\\\"home_add_fab\\\"\"",
+      "parsed": true,
+      "target_metadata": {
+        "line": 3,
+        "value": {
+          "id": "home_add_fab",
+          "role": "view",
+          "ancestry": [],
+          "sibling": 5,
+          "viewportOrder": 0,
+          "rect": {
+            "x": 891,
+            "y": 1906,
+            "width": 147,
+            "height": 147
+          },
+          "verification": "verified"
+        }
+      },
+      "command": "press",
+      "args": ["id=\"home_add_fab\" || text=\"home_add_fab\""],
+      "selector": {
+        "expression": "id=\"home_add_fab\" || text=\"home_add_fab\"",
+        "alternatives": [
+          {
+            "id": "home_add_fab"
+          },
+          {
+            "text": "home_add_fab"
+          }
+        ]
+      }
+    },
+    {
+      "line": 6,
+      "raw": "press \"role=\\\"textview\\\" label=\\\"Text Note\\\" || label=\\\"Text Note\\\" || value=\\\"Text Note\\\"\"",
+      "parsed": true,
+      "target_metadata": {
+        "line": 5,
+        "value": {
+          "role": "textview",
+          "label": "Text Note",
+          "ancestry": [
+            {
+              "role": "view"
+            }
+          ],
+          "sibling": 1,
+          "viewportOrder": 0,
+          "rect": {
+            "x": 203,
+            "y": 2132,
+            "width": 160,
+            "height": 53
+          },
+          "verification": "verified"
+        }
+      },
+      "command": "press",
+      "args": [
+        "role=\"textview\" label=\"Text Note\" || label=\"Text Note\" || value=\"Text Note\""
+      ],
+      "selector": {
+        "expression": "role=\"textview\" label=\"Text Note\" || label=\"Text Note\" || value=\"Text Note\"",
+        "alternatives": [
+          {
+            "role": "textview",
+            "label": "Text Note"
+          },
+          {
+            "label": "Text Note"
+          },
+          {
+            "value": "Text Note"
+          }
+        ]
+      }
+    },
+    {
+      "line": 7,
+      "raw": "wait \"id=\\\"editor_title_input\\\"\"",
+      "parsed": true,
+      "command": "wait",
+      "args": ["id=\"editor_title_input\""],
+      "condition": "target",
+      "selector": {
+        "expression": "id=\"editor_title_input\"",
+        "alternatives": [
+          {
+            "id": "editor_title_input"
+          }
+        ]
+      }
+    },
+    {
+      "line": 9,
+      "raw": "fill \"id=\\\"editor_title_input\\\" || text=\\\"editor_title_input\\\" editable=true\" \"${QA_NOTE_TITLE}\"",
+      "parsed": true,
+      "target_metadata": {
+        "line": 8,
+        "value": {
+          "id": "editor_title_input",
+          "role": "edittext",
+          "ancestry": [
+            {
+              "role": "scrollview"
+            }
+          ],
+          "sibling": 0,
+          "viewportOrder": 0,
+          "scrollRegion": {
+            "role": "scrollview",
+            "id": "editor_content_scrollable"
+          },
+          "rect": {
+            "x": 84,
+            "y": 429,
+            "width": 912,
+            "height": 147
+          },
+          "verification": "verified"
+        }
+      },
+      "command": "fill",
+      "args": [
+        "id=\"editor_title_input\" || text=\"editor_title_input\" editable=true",
+        "${QA_NOTE_TITLE}"
+      ],
+      "selector": {
+        "expression": "id=\"editor_title_input\" || text=\"editor_title_input\" editable=true",
+        "alternatives": [
+          {
+            "id": "editor_title_input"
+          },
+          {
+            "text": "editor_title_input",
+            "editable": "true"
+          }
+        ]
+      },
+      "value": "${QA_NOTE_TITLE}"
+    },
+    {
+      "line": 10,
+      "raw": "keyboard \"dismiss\"",
+      "parsed": true,
+      "command": "keyboard",
+      "args": ["dismiss"],
+      "action": "dismiss"
+    },
+    {
+      "line": 11,
+      "raw": "swipe 920 2264 350 2264",
+      "parsed": true,
+      "command": "swipe",
+      "args": ["920", "2264", "350", "2264"],
+      "coordinates": [920.0, 2264.0, 350.0, 2264.0],
+      "direction_hint": "left"
+    },
+    {
+      "line": 13,
+      "raw": "is \"visible\" \"id=\\\"editor_add_table\\\"\"",
+      "parsed": true,
+      "target_metadata": {
+        "line": 12,
+        "value": {
+          "id": "editor_add_table",
+          "role": "view",
+          "ancestry": [
+            {
+              "role": "view"
+            },
+            {
+              "role": "view"
+            },
+            {
+              "role": "view"
+            },
+            {
+              "role": "view"
+            },
+            {
+              "role": "view"
+            },
+            {
+              "role": "composeview"
+            },
+            {
+              "role": "framelayout"
+            },
+            {
+              "role": "linearlayout"
+            }
+          ],
+          "sibling": 9,
+          "viewportOrder": 0,
+          "rect": {
+            "x": 954,
+            "y": 2201,
+            "width": 126,
+            "height": 126
+          },
+          "verification": "verified"
+        }
+      },
+      "command": "is",
+      "args": ["visible", "id=\"editor_add_table\""],
+      "condition": "visible",
+      "selector": {
+        "expression": "id=\"editor_add_table\"",
+        "alternatives": [
+          {
+            "id": "editor_add_table"
+          }
+        ]
+      },
+      "recorded_assertion": true
+    },
+    {
+      "line": 15,
+      "raw": "press \"id=\\\"editor_add_table\\\" || text=\\\"editor_add_table\\\"\"",
+      "parsed": true,
+      "target_metadata": {
+        "line": 14,
+        "value": {
+          "id": "editor_add_table",
+          "role": "view",
+          "ancestry": [],
+          "sibling": 13,
+          "viewportOrder": 0,
+          "rect": {
+            "x": 954,
+            "y": 2201,
+            "width": 126,
+            "height": 126
+          },
+          "verification": "verified"
+        }
+      },
+      "command": "press",
+      "args": ["id=\"editor_add_table\" || text=\"editor_add_table\""],
+      "selector": {
+        "expression": "id=\"editor_add_table\" || text=\"editor_add_table\"",
+        "alternatives": [
+          {
+            "id": "editor_add_table"
+          },
+          {
+            "text": "editor_add_table"
+          }
+        ]
+      }
+    },
+    {
+      "line": 16,
+      "raw": "wait \"id=\\\"editor_table_grid\\\"\"",
+      "parsed": true,
+      "command": "wait",
+      "args": ["id=\"editor_table_grid\""],
+      "condition": "target",
+      "selector": {
+        "expression": "id=\"editor_table_grid\"",
+        "alternatives": [
+          {
+            "id": "editor_table_grid"
+          }
+        ]
+      }
+    },
+    {
+      "line": 18,
+      "raw": "press \"role=\\\"edittext\\\" label=\\\"Name\\\" || label=\\\"Name\\\" || value=\\\"Name\\\"\"",
+      "parsed": true,
+      "target_metadata": {
+        "line": 17,
+        "value": {
+          "role": "edittext",
+          "label": "Name",
+          "ancestry": [
+            {
+              "role": "horizontalscrollview"
+            },
+            {
+              "role": "scrollview"
+            }
+          ],
+          "sibling": 0,
+          "viewportOrder": 0,
+          "scrollRegion": {
+            "role": "scrollview",
+            "id": "editor_content_scrollable"
+          },
+          "rect": {
+            "x": 105,
+            "y": 676,
+            "width": 478,
+            "height": 106
+          },
+          "verification": "verified"
+        }
+      },
+      "command": "press",
+      "args": ["role=\"edittext\" label=\"Name\" || label=\"Name\" || value=\"Name\""],
+      "selector": {
+        "expression": "role=\"edittext\" label=\"Name\" || label=\"Name\" || value=\"Name\"",
+        "alternatives": [
+          {
+            "role": "edittext",
+            "label": "Name"
+          },
+          {
+            "label": "Name"
+          },
+          {
+            "value": "Name"
+          }
+        ]
+      }
+    },
+    {
+      "line": 19,
+      "raw": "wait \"id=\\\"editor_cell_options_action\\\"\"",
+      "parsed": true,
+      "command": "wait",
+      "args": ["id=\"editor_cell_options_action\""],
+      "condition": "target",
+      "selector": {
+        "expression": "id=\"editor_cell_options_action\"",
+        "alternatives": [
+          {
+            "id": "editor_cell_options_action"
+          }
+        ]
+      }
+    },
+    {
+      "line": 21,
+      "raw": "press \"id=\\\"editor_cell_options_action\\\" || text=\\\"editor_cell_options_action\\\"\"",
+      "parsed": true,
+      "target_metadata": {
+        "line": 20,
+        "value": {
+          "id": "editor_cell_options_action",
+          "role": "view",
+          "ancestry": [],
+          "sibling": 6,
+          "viewportOrder": 0,
+          "rect": {
+            "x": 405,
+            "y": 2201,
+            "width": 310,
+            "height": 126
+          },
+          "verification": "verified"
+        }
+      },
+      "command": "press",
+      "args": ["id=\"editor_cell_options_action\" || text=\"editor_cell_options_action\""],
+      "selector": {
+        "expression": "id=\"editor_cell_options_action\" || text=\"editor_cell_options_action\"",
+        "alternatives": [
+          {
+            "id": "editor_cell_options_action"
+          },
+          {
+            "text": "editor_cell_options_action"
+          }
+        ]
+      }
+    },
+    {
+      "line": 22,
+      "raw": "wait text \"Insert column right\"",
+      "parsed": true,
+      "command": "wait",
+      "args": ["text", "Insert column right"],
+      "condition": "target",
+      "selector": {
+        "expression": "text='Insert column right'",
+        "alternatives": [
+          {
+            "text": "Insert column right"
+          }
+        ]
+      }
+    },
+    {
+      "line": 23,
+      "raw": "press \"role=\\\"textview\\\" label=\\\"Insert column right\\\"\"",
+      "parsed": true,
+      "command": "press",
+      "args": ["role=\"textview\" label=\"Insert column right\""],
+      "selector": {
+        "expression": "role=\"textview\" label=\"Insert column right\"",
+        "alternatives": [
+          {
+            "role": "textview",
+            "label": "Insert column right"
+          }
+        ]
+      }
+    },
+    {
+      "line": 24,
+      "raw": "wait absent \"text=\\\"Insert column right\\\"\"",
+      "parsed": true,
+      "command": "wait",
+      "args": ["absent", "text=\"Insert column right\""],
+      "condition": "absent",
+      "selector": {
+        "expression": "text=\"Insert column right\"",
+        "alternatives": [
+          {
+            "text": "Insert column right"
+          }
+        ]
+      }
+    },
+    {
+      "line": 26,
+      "raw": "press \"id=\\\"editor_cell_options_action\\\" || text=\\\"editor_cell_options_action\\\"\"",
+      "parsed": true,
+      "target_metadata": {
+        "line": 25,
+        "value": {
+          "id": "editor_cell_options_action",
+          "role": "view",
+          "ancestry": [],
+          "sibling": 6,
+          "viewportOrder": 0,
+          "rect": {
+            "x": 405,
+            "y": 2201,
+            "width": 310,
+            "height": 126
+          },
+          "verification": "verified"
+        }
+      },
+      "command": "press",
+      "args": ["id=\"editor_cell_options_action\" || text=\"editor_cell_options_action\""],
+      "selector": {
+        "expression": "id=\"editor_cell_options_action\" || text=\"editor_cell_options_action\"",
+        "alternatives": [
+          {
+            "id": "editor_cell_options_action"
+          },
+          {
+            "text": "editor_cell_options_action"
+          }
+        ]
+      }
+    },
+    {
+      "line": 27,
+      "raw": "wait text \"Insert column right\"",
+      "parsed": true,
+      "command": "wait",
+      "args": ["text", "Insert column right"],
+      "condition": "target",
+      "selector": {
+        "expression": "text='Insert column right'",
+        "alternatives": [
+          {
+            "text": "Insert column right"
+          }
+        ]
+      }
+    },
+    {
+      "line": 28,
+      "raw": "press \"role=\\\"textview\\\" label=\\\"Insert column right\\\"\"",
+      "parsed": true,
+      "command": "press",
+      "args": ["role=\"textview\" label=\"Insert column right\""],
+      "selector": {
+        "expression": "role=\"textview\" label=\"Insert column right\"",
+        "alternatives": [
+          {
+            "role": "textview",
+            "label": "Insert column right"
+          }
+        ]
+      }
+    },
+    {
+      "line": 29,
+      "raw": "wait absent \"text=\\\"Insert column right\\\"\"",
+      "parsed": true,
+      "command": "wait",
+      "args": ["absent", "text=\"Insert column right\""],
+      "condition": "absent",
+      "selector": {
+        "expression": "text=\"Insert column right\"",
+        "alternatives": [
+          {
+            "text": "Insert column right"
+          }
+        ]
+      }
+    },
+    {
+      "line": 31,
+      "raw": "press \"id=\\\"editor_cell_options_action\\\" || text=\\\"editor_cell_options_action\\\"\"",
+      "parsed": true,
+      "target_metadata": {
+        "line": 30,
+        "value": {
+          "id": "editor_cell_options_action",
+          "role": "view",
+          "ancestry": [],
+          "sibling": 6,
+          "viewportOrder": 0,
+          "rect": {
+            "x": 405,
+            "y": 2201,
+            "width": 310,
+            "height": 126
+          },
+          "verification": "verified"
+        }
+      },
+      "command": "press",
+      "args": ["id=\"editor_cell_options_action\" || text=\"editor_cell_options_action\""],
+      "selector": {
+        "expression": "id=\"editor_cell_options_action\" || text=\"editor_cell_options_action\"",
+        "alternatives": [
+          {
+            "id": "editor_cell_options_action"
+          },
+          {
+            "text": "editor_cell_options_action"
+          }
+        ]
+      }
+    },
+    {
+      "line": 32,
+      "raw": "wait text \"Insert row below\"",
+      "parsed": true,
+      "command": "wait",
+      "args": ["text", "Insert row below"],
+      "condition": "target",
+      "selector": {
+        "expression": "text='Insert row below'",
+        "alternatives": [
+          {
+            "text": "Insert row below"
+          }
+        ]
+      }
+    },
+    {
+      "line": 33,
+      "raw": "press \"role=\\\"textview\\\" label=\\\"Insert row below\\\"\"",
+      "parsed": true,
+      "command": "press",
+      "args": ["role=\"textview\" label=\"Insert row below\""],
+      "selector": {
+        "expression": "role=\"textview\" label=\"Insert row below\"",
+        "alternatives": [
+          {
+            "role": "textview",
+            "label": "Insert row below"
+          }
+        ]
+      }
+    },
+    {
+      "line": 34,
+      "raw": "wait absent \"text=\\\"Insert row below\\\"\"",
+      "parsed": true,
+      "command": "wait",
+      "args": ["absent", "text=\"Insert row below\""],
+      "condition": "absent",
+      "selector": {
+        "expression": "text=\"Insert row below\"",
+        "alternatives": [
+          {
+            "text": "Insert row below"
+          }
+        ]
+      }
+    },
+    {
+      "line": 36,
+      "raw": "press \"id=\\\"editor_cell_options_action\\\" || text=\\\"editor_cell_options_action\\\"\"",
+      "parsed": true,
+      "target_metadata": {
+        "line": 35,
+        "value": {
+          "id": "editor_cell_options_action",
+          "role": "view",
+          "ancestry": [],
+          "sibling": 6,
+          "viewportOrder": 0,
+          "rect": {
+            "x": 405,
+            "y": 2201,
+            "width": 310,
+            "height": 126
+          },
+          "verification": "verified"
+        }
+      },
+      "command": "press",
+      "args": ["id=\"editor_cell_options_action\" || text=\"editor_cell_options_action\""],
+      "selector": {
+        "expression": "id=\"editor_cell_options_action\" || text=\"editor_cell_options_action\"",
+        "alternatives": [
+          {
+            "id": "editor_cell_options_action"
+          },
+          {
+            "text": "editor_cell_options_action"
+          }
+        ]
+      }
+    },
+    {
+      "line": 37,
+      "raw": "wait text \"Insert row below\"",
+      "parsed": true,
+      "command": "wait",
+      "args": ["text", "Insert row below"],
+      "condition": "target",
+      "selector": {
+        "expression": "text='Insert row below'",
+        "alternatives": [
+          {
+            "text": "Insert row below"
+          }
+        ]
+      }
+    },
+    {
+      "line": 38,
+      "raw": "press \"role=\\\"textview\\\" label=\\\"Insert row below\\\"\"",
+      "parsed": true,
+      "command": "press",
+      "args": ["role=\"textview\" label=\"Insert row below\""],
+      "selector": {
+        "expression": "role=\"textview\" label=\"Insert row below\"",
+        "alternatives": [
+          {
+            "role": "textview",
+            "label": "Insert row below"
+          }
+        ]
+      }
+    },
+    {
+      "line": 39,
+      "raw": "wait absent \"text=\\\"Insert row below\\\"\"",
+      "parsed": true,
+      "command": "wait",
+      "args": ["absent", "text=\"Insert row below\""],
+      "condition": "absent",
+      "selector": {
+        "expression": "text=\"Insert row below\"",
+        "alternatives": [
+          {
+            "text": "Insert row below"
+          }
+        ]
+      }
+    },
+    {
+      "line": 40,
+      "raw": "swipe 930 730 350 730",
+      "parsed": true,
+      "command": "swipe",
+      "args": ["930", "730", "350", "730"],
+      "coordinates": [930.0, 730.0, 350.0, 730.0],
+      "direction_hint": "left"
+    },
+    {
+      "line": 42,
+      "raw": "wait \"id=\\\"editor_table_grid\\\"\"",
+      "parsed": true,
+      "target_metadata": {
+        "line": 41,
+        "value": {
+          "id": "editor_table_grid",
+          "role": "view",
+          "ancestry": [
+            {
+              "role": "horizontalscrollview"
+            },
+            {
+              "role": "view"
+            },
+            {
+              "role": "view"
+            },
+            {
+              "role": "scrollview"
+            },
+            {
+              "role": "view"
+            },
+            {
+              "role": "view"
+            },
+            {
+              "role": "view"
+            },
+            {
+              "role": "view"
+            }
+          ],
+          "sibling": 0,
+          "viewportOrder": 0,
+          "scrollRegion": {
+            "role": "scrollview",
+            "id": "editor_content_scrollable"
+          },
+          "rect": {
+            "x": 84,
+            "y": 676,
+            "width": 912,
+            "height": 504
+          },
+          "verification": "verified"
+        }
+      },
+      "command": "wait",
+      "args": ["id=\"editor_table_grid\""],
+      "condition": "target",
+      "selector": {
+        "expression": "id=\"editor_table_grid\"",
+        "alternatives": [
+          {
+            "id": "editor_table_grid"
+          }
+        ]
+      }
+    }
+  ],
+  "comments": []
+}

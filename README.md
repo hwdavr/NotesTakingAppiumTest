@@ -1,7 +1,8 @@
 # NotesTakingApp Appium Tests
 
 TypeScript + WebdriverIO + Mocha framework for the Android NotesTakingApp. Appium and its
-UiAutomator2 driver run locally; application source and saved notes are not modified.
+UiAutomator2 driver run locally. The converted table test creates and archives its own note;
+existing notes and application source are preserved.
 
 ## Setup
 
@@ -42,7 +43,9 @@ device must also have any other transports, including Ethernet/VPN, isolated.
 
 The smoke suite accepts the real Onboarding or Home entry state. The authenticated suite
 requires a previously prepared login and an English locale; missing authentication fails
-explicitly. It does not automate Auth0, inject tokens, sign out, edit settings, or create notes.
+explicitly. It does not automate Auth0, inject tokens, sign out, or edit settings. The table
+case creates a uniquely named test-owned note and archives it during cleanup. Archiving leaves
+the note in the app's archive; it is not permanent deletion.
 
 ## Commands
 
@@ -50,7 +53,7 @@ explicitly. It does not automate Auth0, inject tokens, sign out, edit settings, 
 npm run doctor               # SDK/Java/driver/device/API/debug build/network diagnostics
 npm run check                # typecheck + lint + formatting + framework unit tests
 npm test                     # default launch smoke (one real device test)
-npm run test:authenticated   # creation sheet + Settings/Home + Folders/Home (three tests)
+npm run test:authenticated   # creation sheet + tab returns + owned-note 4×4 table (four tests)
 npm run report:generate      # generate HTML from latest Allure results (requires Java)
 npm run report:open          # open generated report
 ```
@@ -59,6 +62,17 @@ Select a device with `ANDROID_UDID=emulator-5554`. If several devices are online
 UDID is required. Run one worker per device; this project intentionally uses `maxInstances=1`.
 `npm test -- --spec ./tests/specs/smoke/app-launch.spec.ts` forwards a WDIO spec filter.
 Zero executed tests never count as a successful run.
+
+Run only the migrated recording with the existing backend/device preconditions:
+
+```sh
+npm run test:authenticated -- --spec ./tests/specs/authenticated/create-4x4-table.spec.ts
+```
+
+`QA_NOTE_TITLE` optionally supplies a title prefix; the test appends a UUID ownership suffix.
+The full step mapping, native-layout oracle, cleanup limits, and verification status are in
+[the conversion record](docs/conversions/create-4x4-table.md). This migration has static
+verification only; the earlier agent-device replay does not verify this Appium case.
 
 `npm run typecheck`, `npm run lint`, `npm run format:check`, `npm run format`, and
 `npm run test:unit` are also available separately. TypeScript is executed by `tsx`; `tsc`
@@ -83,6 +97,7 @@ The `.env` file is optional and ignored by Git; environment variables take prece
 | CAPTURE_PAGE_SOURCE      | false; opt in to private hierarchy XML on failures                               |
 | TEST_NETWORK_ISOLATED    | false; otherwise explicitly attest an isolated test network                      |
 | RUN_ID                   | Generated per test invocation; set only when selecting a report to generate/open |
+| QA_NOTE_TITLE            | QA 4x4 table; optional 1–100 character prefix, with a unique suffix appended     |
 
 An external server must use HTTPS unless it is on loopback. URLs with credentials/query
 parameters are rejected. Install the pinned UiAutomator2 driver on an external server yourself;
@@ -100,6 +115,7 @@ support/      device preflight, entry state, cleanup, failure artifacts
 tests/specs/  maintained real-device smoke and authenticated suites
 tests/unit/   configuration and reliability boundary checks
 docs/current/ approved scope, plans, and delivery evidence
+docs/conversions/ recording inventories, step mappings, and migration evidence
 ```
 
 Debug `MainActivity` exports Compose test tags as bare resource IDs. The capability
